@@ -12,7 +12,17 @@
             --toptech-red: #FF3B30; /* Canlı Apple Qırmızısı */
             --apple-text-main: #1D1D1F;
             --apple-text-sub: #86868B;
-            --logo-size: 400px;
+            --logo-size: 120px; /* Loqonun ölçüsünü buradan istədiyin kimi böyüdüb-kiçildə bilərsən */
+}
+
+/* Saytdakı loqonu böyütmək üçün */
+.splash-logo-container img, 
+.logo, 
+img[alt*="Logo"], 
+img[alt*="logo"] {
+    width: var(--logo-size) !important;
+    height: auto !important;
+}
         }
 
         * {
