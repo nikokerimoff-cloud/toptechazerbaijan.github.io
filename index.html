@@ -49,8 +49,9 @@
         }
 
         .splash-img {
-            width: 120px;
+            width: 260px; /* Açılışda Böyük Loqo */
             height: auto;
+            max-width: 85vw;
         }
 
         /* --- 📱 MAIN CONTAINER --- */
@@ -69,30 +70,35 @@
             text-align: center;
             margin-top: 20px;
             margin-bottom: 40px;
+            width: 100%;
+            max-width: 480px;
         }
 
         .logo-wrapper {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
         }
 
         .logo-wrapper img {
-            width: 150px; /* Telefon və kompüter üçün ideal ölçü */
+            width: 320px; /* Səhifədə Çox Böyük və Nəzərəçarpan Loqo */
             height: auto;
-            max-width: 100%;
+            max-width: 90vw;
         }
 
         .main-title {
-            font-size: 2.2rem;
+            font-size: 2.6rem; /* Daha böyük başlıq texti */
             font-weight: 800;
             letter-spacing: -1px;
             color: var(--toptech-red); /* Tamamilə Qırmızı Mətn */
+            line-height: 1.2;
         }
 
         .tagline {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--apple-text-sub);
             font-weight: 500;
-            margin-top: 5px;
+            margin-top: 8px;
         }
 
         /* --- 📦 SƏHİFƏ STRUKTURU (ZƏRİF KART SİSTEMİ) --- */
@@ -222,7 +228,7 @@
             font-weight: 600;
         }
 
-        /* --- 📐 APPARET ANİMASİYALARI --- */
+        /* --- 📐 ANİMASİYALAR --- */
         @keyframes scaleUp {
             0% { transform: scale(0.85); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
@@ -240,7 +246,8 @@
 
         /* --- 📱 MOBİL UYĞUNLUQ --- */
         @media (max-width: 480px) {
-            .main-title { font-size: 1.8rem; }
+            .main-title { font-size: 2.1rem; }
+            .logo-wrapper img { width: 260px; }
             .card { padding: 20px; }
             .social-grid { grid-template-columns: 1fr; }
             .btn-whatsapp { grid-column: span 1; }
