@@ -12,74 +12,76 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
 background:#ffffff;
-color:#111;
+color:#222;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:30px;
 }
 
 .container{
-max-width:900px;
-margin:auto;
-padding:60px 20px;
+max-width:500px;
+width:100%;
 text-align:center;
 }
 
 .logo{
 width:180px;
-margin-bottom:25px;
-}
-
-.red-line{
-width:80px;
-height:4px;
-background:#d40000;
-margin:20px auto 40px;
-border-radius:10px;
+margin-bottom:20px;
 }
 
 h1{
-font-size:42px;
-margin-bottom:15px;
+font-size:44px;
+margin-bottom:12px;
+}
+
+.line{
+width:80px;
+height:4px;
+background:#c40021;
+margin:18px auto 28px;
+border-radius:10px;
 }
 
 .subtitle{
-font-size:20px;
+font-size:22px;
 color:#666;
-margin-bottom:40px;
+margin-bottom:35px;
 }
 
-.socials a{
+.button{
 display:block;
 text-decoration:none;
-color:#111;
+background:#fff;
+border:1px solid #ddd;
+border-radius:14px;
+padding:18px;
+margin-bottom:15px;
+font-size:22px;
+color:#222;
+transition:.3s;
+}
+
+.button:hover{
+background:#c40021;
+color:#fff;
+}
+
+.info{
+margin-top:35px;
 font-size:20px;
-padding:12px;
-margin:10px auto;
-max-width:320px;
-border:1px solid #eee;
-border-radius:12px;
-transition:0.3s;
-}
-
-.socials a:hover{
-background:#d40000;
-color:white;
-}
-
-.contact{
-margin-top:60px;
 line-height:2;
-font-size:18px;
 color:#555;
 }
 
-footer{
-margin-top:70px;
-padding:25px;
-border-top:1px solid #eee;
+.footer{
+margin-top:40px;
 color:#999;
 font-size:15px;
 }
@@ -96,41 +98,37 @@ font-size:15px;
 
 <h1>TopTech Azerbaijan</h1>
 
-<div class="red-line"></div>
+<div class="line"></div>
 
 <p class="subtitle">
 Premium Elektronika • Etibar • Keyfiyyət
 </p>
 
-<div class="socials">
+<a class="button" href="https://instagram.com/toptech.az">📸 Instagram</a>
 
-<a href="https://instagram.com/toptech.az">📸 Instagram</a>
+<a class="button" href="https://tiktok.com/@toptech.az">🎵 TikTok</a>
 
-<a href="https://tiktok.com/@toptech.az">🎵 TikTok</a>
+<a class="button" href="https://facebook.com/toptech.az">📘 Facebook</a>
 
-<a href="https://facebook.com/toptech.az">📘 Facebook</a>
+<a class="button" href="https://youtube.com/@toptech.az">▶️ YouTube</a>
 
-<a href="https://youtube.com/@toptech.az">▶️ YouTube</a>
+<a class="button" href="https://wa.me/994559270420">💬 WhatsApp</a>
 
-<a href="https://wa.me/994559270820">💬 WhatsApp</a>
+<div class="info">
 
-</div>
+📧 toptechazerbaijan@gmail.com<br>
 
-<div class="contact">
+📞 +994 55 927 04 20<br>
 
-<p>📧 toptechazerbaijan@gmail.com</p>
-
-<p>📞 +994 55 927 08 20</p>
-
-<p>📍 Bakı, Azərbaycan</p>
+📍 Bakı, Azərbaycan
 
 </div>
 
-<footer>
+<div class="footer">
 
 © 2026 TopTech Azerbaijan. All Rights Reserved.
 
-</footer>
+</div>
 
 </div>
 
