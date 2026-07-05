@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TopTech.az</title>
-    <!-- Loqo mətni üçün xüsusi əllə yazılmış/yumşaq şrift -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+    <title>TopTech Azerbaijan</title>
     <style>
         /* Apple Dizayn Sistemi və Rənglər */
         :root {
-            --apple-bg: #F5F5F7;
+            --apple-bg: #FFFFFF; /* Tam ağ fon */
             --apple-white: #FFFFFF;
-            --toptech-red: #FF0000; /* Standart təmiz qırmızı rəng */
+            --toptech-red: #FF3B30; /* Canlı Apple Qırmızısı */
             --apple-text-main: #1D1D1F;
             --apple-text-sub: #86868B;
+            
+            /* 🟥 LOQONUN ÖLÇÜSÜNÜ BURADAN DƏYİŞƏ BİLƏRSƏN */
+            --logo-size: 400px; 
         }
 
         * {
@@ -42,21 +43,24 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            animation: fadeOut 0.6s ease-in-out 2.2s forwards;
-            padding: 20px;
+            animation: fadeOut 0.4s ease-in-out 1s forwards; /* 1 saniyəlik sürətli açılış */
         }
 
         .splash-logo-container {
             text-align: center;
-            width: 100%;
-            max-width: 280px;
-            animation: scaleUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation: scaleUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .splash-img {
+            width: var(--logo-size); /* Açılışda da təyin etdiyiniz böyük ölçü */
+            height: auto;
+            max-width: 90vw;
         }
 
         /* --- 📱 MAIN CONTAINER --- */
         #main-content {
             opacity: 0;
-            animation: fadeInContent 0.8s ease-out 2.5s forwards;
+            animation: fadeInContent 0.6s ease-out 1.2s forwards;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -64,50 +68,63 @@
             padding: 40px 20px;
         }
 
-        /* --- 🟥 YENİ SKETCH VECTOR LOQO --- */
+        /* --- 🟥 BÖYÜK TOPTECH LOQOSU VƏ MƏTN --- */
         .brand-header {
             text-align: center;
-            margin-top: 10px;
-            margin-bottom: 35px;
+            margin-top: 20px;
+            margin-bottom: 40px;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            max-width: 600px;
         }
 
-        .logo-svg {
-            width: 100%;
-            max-width: 320px; /* Premium və balanslı görünüş üçün */
+        .logo-wrapper {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo-wrapper img {
+            width: var(--logo-size); /* Əsas səhifədəki böyük loqo */
             height: auto;
-            margin-bottom: 15px;
+            max-width: 95vw; /* Mobil ekranlardan kənara çıxmaması üçün */
+            display: block;
+        }
+
+        .main-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--toptech-red); /* Tamamilə Qırmızı Mətn */
+            line-height: 1.2;
         }
 
         .tagline {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--apple-text-sub);
             font-weight: 500;
-            letter-spacing: -0.3px;
+            margin-top: 8px;
         }
 
-        /* --- 📦 SƏHİFƏ STRUKTURU (KART SİSTEMİ) --- */
+        /* --- 📦 SƏHİFƏ STRUKTURU (ZƏRİF KART SİSTEMİ) --- */
         .card {
             background: var(--apple-white);
             border-radius: 24px;
             padding: 30px;
             width: 100%;
             max-width: 480px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
             margin-bottom: 24px;
+            border: 1px solid #F2F2F7;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09);
         }
 
         .section-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--apple-text-sub);
             margin-bottom: 20px;
@@ -127,7 +144,7 @@
             align-items: center;
             gap: 12px;
             padding: 16px;
-            background: var(--apple-bg);
+            background: #F5F5F7;
             border-radius: 16px;
             text-decoration: none;
             color: var(--apple-text-main);
@@ -143,7 +160,7 @@
             transition: fill 0.2s ease;
         }
 
-        /* Hover Effektləri */
+        /* Hover Effektləri (Brend Rəngləri) */
         .social-btn:hover {
             background-color: var(--apple-text-main);
             color: var(--apple-white);
@@ -153,20 +170,19 @@
             fill: var(--apple-white);
         }
 
-        /* Xüsusi Rəng Vurğuları */
         .btn-instagram:hover { background-color: #E1306C; }
         .btn-tiktok:hover { background-color: #000000; }
         .btn-facebook:hover { background-color: #1877F2; }
-        .btn-youtube:hover { background-color: var(--toptech-red); }
+        .btn-youtube:hover { background-color: #FF0000; }
         
-        /* WhatsApp Böyük Düymə */
+        /* WhatsApp Düyməsi */
         .btn-whatsapp {
             grid-column: span 2;
             background-color: #25D366;
             color: white;
             justify-content: center;
             font-size: 1.1rem;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
         }
         .btn-whatsapp svg { fill: white; }
         .btn-whatsapp:hover {
@@ -180,7 +196,7 @@
             align-items: center;
             gap: 16px;
             padding: 14px 0;
-            border-bottom: 1px solid #ECECEC;
+            border-bottom: 1px solid #F2F2F7;
             text-decoration: none;
             color: var(--apple-text-main);
             font-weight: 500;
@@ -196,7 +212,7 @@
             justify-content: center;
             width: 36px;
             height: 36px;
-            background: var(--apple-bg);
+            background: #F5F5F7;
             border-radius: 50%;
             color: var(--toptech-red);
         }
@@ -216,10 +232,9 @@
             font-weight: 600;
         }
 
-        /* --- 📐 APPARET ANİMASİYALARI --- */
+        /* --- 📐 ANİMASİYALARI --- */
         @keyframes scaleUp {
-            0% { transform: scale(0.8); opacity: 0; }
-            50% { opacity: 1; }
+            0% { transform: scale(0.85); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
 
@@ -229,14 +244,13 @@
         }
 
         @keyframes fadeInContent {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- 📱 RESPONSIVE UYĞUNLUQ --- */
+        /* --- 📱 MOBİL UYĞUNLUQ --- */
         @media (max-width: 480px) {
-            .logo-svg { max-width: 260px; }
-            .tagline { font-size: 1rem; }
+            .main-title { font-size: 2.2rem; }
             .card { padding: 20px; }
             .social-grid { grid-template-columns: 1fr; }
             .btn-whatsapp { grid-column: span 1; }
@@ -245,92 +259,19 @@
 </head>
 <body>
 
-    <!-- AÇILIŞ EKRANI (SPLASH SCREEN) -->
     <div id="splash-screen">
         <div class="splash-logo-container">
-            <!-- Göndərdiyiniz şəklə tam uyğun sketch üslublu SVG loqo -->
-            <svg class="logo-svg" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
-                <!-- Sol tərəfdəki fırça cızıqları (Wing lines) -->
-                <path d="M 112 140 Q 102 155 112 170" fill="none" stroke="#FF0000" stroke-width="4.5" stroke-linecap="round" />
-                <path d="M 106 148 Q 94 168 106 188" fill="none" stroke="#FF0000" stroke-width="5" stroke-linecap="round" />
-                <path d="M 101 158 Q 87 181 101 204" fill="none" stroke="#FF0000" stroke-width="5.5" stroke-linecap="round" />
-                <path d="M 97 169 Q 81 195 97 221" fill="none" stroke="#FF0000" stroke-width="4.5" stroke-linecap="round" />
-                <path d="M 94 182 Q 76 210 94 238" fill="none" stroke="#FF0000" stroke-width="4" stroke-linecap="round" />
-
-                <!-- Sağ tərəfdəki fırça cızıqları (Wing lines) -->
-                <path d="M 388 140 Q 398 155 388 170" fill="none" stroke="#FF0000" stroke-width="4.5" stroke-linecap="round" />
-                <path d="M 394 148 Q 406 168 394 188" fill="none" stroke="#FF0000" stroke-width="5" stroke-linecap="round" />
-                <path d="M 399 158 Q 413 181 399 204" fill="none" stroke="#FF0000" stroke-width="5.5" stroke-linecap="round" />
-                <path d="M 403 169 Q 419 195 403 221" fill="none" stroke="#FF0000" stroke-width="4.5" stroke-linecap="round" />
-                <path d="M 406 182 Q 424 210 406 238" fill="none" stroke="#FF0000" stroke-width="4" stroke-linecap="round" />
-
-                <!-- Noutbuk ekran çərçivəsi (Əl işi cızıq effektli üst-üstə xətlər) -->
-                <rect x="135" y="115" width="230" height="135" rx="16" ry="16" fill="none" stroke="#FF0000" stroke-width="4.5" stroke-linejoin="round" />
-                <rect x="132" y="112" width="236" height="141" rx="18" ry="18" fill="none" stroke="#FF0000" stroke-width="2" stroke-linejoin="round" opacity="0.7" />
-
-                <!-- Noutbukun klaviatura və alt hissəsi (Base) -->
-                <path d="M 115 255 L 385 255 Q 400 255 390 263 L 375 272 Q 370 274 360 274 L 140 274 Q 130 274 125 272 L 110 263 Q 100 255 115 255 Z" fill="none" stroke="#FF0000" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
-                <path d="M 125 255 L 375 255" fill="none" stroke="#FF0000" stroke-width="3.5" />
-                <path d="M 225 255 L 275 255" fill="none" stroke="#FF0000" stroke-width="7.5" stroke-linecap="round" />
-
-                <!-- Ekranın mərkəzindəki qanadlı "TT" emblemi -->
-                <g transform="translate(182, 138)">
-                    <!-- Üst qanadvari xətt -->
-                    <path d="M 10 22 C 30 12, 50 12, 65 18 C 65 18, 90 12, 110 22 C 115 24, 115 26, 110 26 C 90 26, 80 30, 75 35 C 70 30, 60 26, 40 26 C 35 26, 5 24, 10 22 Z" fill="#FF0000" />
-                    <!-- Sol tərəfdəki 'T' sütunu -->
-                    <path d="M 45 28 C 45 28, 48 55, 42 62 C 39 65, 34 68, 30 68 C 38 68, 48 64, 52 50 C 53 45, 52 28, 52 28 Z" fill="#FF0000" />
-                    <!-- Sağ tərəfdəki 'T' sütunu -->
-                    <path d="M 75 28 C 75 28, 72 55, 78 62 C 81 65, 86 68, 90 68 C 82 68, 72 64, 68 50 C 67 45, 68 28, 68 28 Z" fill="#FF0000" />
-                </g>
-
-                <!-- Şəkildəki şriftə uyğun "toptech" mətni -->
-                <text x="250" y="342" font-family="'Fredoka', 'Comfortaa', sans-serif" font-weight="700" font-size="52" fill="#FF0000" text-anchor="middle" letter-spacing="1">toptech</text>
-            </svg>
+            <img src="logo.png" alt="TopTech" class="splash-img">
         </div>
     </div>
 
-    <!-- ANA MƏZMUN -->
     <div id="main-content">
 
         <header class="brand-header">
-            <!-- Göndərdiyiniz şəklə tam uyğun sketch üslublu SVG loqo -->
-            <svg class="logo-svg" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
-                <!-- Sol tərəfdəki fırça cızıqları -->
-                <path d="M 112 140 Q 102 155 112 170" fill="none" stroke="#FF0000" stroke-width="4.5" stroke-linecap="round" />
-                <path d="M 106 148 Q 94 168 106 188" fill="none" stroke="#FF0000" stroke-width="5" stroke-linecap="round" />
-                <path d="M 101 158 Q 87 181 101 204" fill="none" stroke="#FF0000" stroke-width="5.5" stroke-linecap="round" />
-                <path d="M 97 169 Q 81 195 97 221" fill="none" stroke="#FF0000" stroke-width="4.5" stroke-linecap="round" />
-                <path d="M 94 182 Q 76 210 94 238" fill="none" stroke="#FF0000" stroke-width="4" stroke-linecap="round" />
-
-                <!-- Sağ tərəfdəki fırça cızıqları -->
-                <path d="M 388 140 Q 398 155 388 170" fill="none" stroke="#FF0000" stroke-width="4.5" stroke-linecap="round" />
-                <path d="M 394 148 Q 406 168 394 188" fill="none" stroke="#FF0000" stroke-width="5" stroke-linecap="round" />
-                <path d="M 399 158 Q 413 181 399 204" fill="none" stroke="#FF0000" stroke-width="5.5" stroke-linecap="round" />
-                <path d="M 403 169 Q 419 195 403 221" fill="none" stroke="#FF0000" stroke-width="4.5" stroke-linecap="round" />
-                <path d="M 406 182 Q 424 210 406 238" fill="none" stroke="#FF0000" stroke-width="4" stroke-linecap="round" />
-
-                <!-- Noutbuk ekran çərçivəsi -->
-                <rect x="135" y="115" width="230" height="135" rx="16" ry="16" fill="none" stroke="#FF0000" stroke-width="4.5" stroke-linejoin="round" />
-                <rect x="132" y="112" width="236" height="141" rx="18" ry="18" fill="none" stroke="#FF0000" stroke-width="2" stroke-linejoin="round" opacity="0.7" />
-
-                <!-- Noutbukun klaviatura və alt hissəsi (Base) -->
-                <path d="M 115 255 L 385 255 Q 400 255 390 263 L 375 272 Q 370 274 360 274 L 140 274 Q 130 274 125 272 L 110 263 Q 100 255 115 255 Z" fill="none" stroke="#FF0000" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
-                <path d="M 125 255 L 375 255" fill="none" stroke="#FF0000" stroke-width="3.5" />
-                <path d="M 225 255 L 275 255" fill="none" stroke="#FF0000" stroke-width="7.5" stroke-linecap="round" />
-
-                <!-- Ekranın mərkəzindəki qanadlı "TT" emblemi -->
-                <g transform="translate(182, 138)">
-                    <!-- Üst qanadvari xətt -->
-                    <path d="M 10 22 C 30 12, 50 12, 65 18 C 65 18, 90 12, 110 22 C 115 24, 115 26, 110 26 C 90 26, 80 30, 75 35 C 70 30, 60 26, 40 26 C 35 26, 5 24, 10 22 Z" fill="#FF0000" />
-                    <!-- Sol tərəfdəki 'T' sütunu -->
-                    <path d="M 45 28 C 45 28, 48 55, 42 62 C 39 65, 34 68, 30 68 C 38 68, 48 64, 52 50 C 53 45, 52 28, 52 28 Z" fill="#FF0000" />
-                    <!-- Sağ tərəfdəki 'T' sütunu -->
-                    <path d="M 75 28 C 75 28, 72 55, 78 62 C 81 65, 86 68, 90 68 C 82 68, 72 64, 68 50 C 67 45, 68 28, 68 28 Z" fill="#FF0000" />
-                </g>
-
-                <!-- Şəkildəki şriftə uyğun "toptech" mətni -->
-                <text x="250" y="342" font-family="'Fredoka', 'Comfortaa', sans-serif" font-weight="700" font-size="52" fill="#FF0000" text-anchor="middle" letter-spacing="1">toptech</text>
-            </svg>
+            <div class="logo-wrapper">
+                <img src="logo.png" alt="TopTech Logo">
+            </div>
+            <h1 class="main-title">TopTech Azerbaijan</h1>
             <p class="tagline">Premium Electronics & Services</p>
         </header>
 
@@ -343,22 +284,22 @@
                     WhatsApp
                 </a>
 
-                <a href="https://instagram.com" target="_blank" class="social-btn btn-instagram">
+                <a href="https://instagram.com/toptech.az" target="_blank" class="social-btn btn-instagram">
                     <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                     Instagram
                 </a>
 
-                <a href="https://tiktok.com" target="_blank" class="social-btn btn-tiktok">
+                <a href="https://tiktok.com/@toptech.az" target="_blank" class="social-btn btn-tiktok">
                     <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.032 2.61-.019 3.91-.019.17 3.4 2.25 5.02 5.54 5.41v3.83c-2.07-.01-4.03-.61-5.55-1.97-.03 2.54.01 5.08-.02 7.62-.13 4.23-3.07 7.15-7.3 7.13-4.23-.02-7.13-2.92-7.14-7.15-.02-4.13 2.85-6.99 6.94-7.14V11.5c-1.74.06-3.13.98-3.32 2.76-.23 2.05 1.34 3.61 3.39 3.57 2.11-.04 3.38-1.4 3.38-3.52V.02z"/></svg>
                     TikTok
                 </a>
 
-                <a href="https://youtube.com" target="_blank" class="social-btn btn-youtube">
+                <a href="https://youtube.com/toptech.az" target="_blank" class="social-btn btn-youtube">
                     <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     YouTube
                 </a>
 
-                <a href="https://facebook.com" target="_blank" class="social-btn btn-facebook">
+                <a href="https://facebook.com/toptech.az" target="_blank" class="social-btn btn-facebook">
                     <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     Facebook
                 </a>
