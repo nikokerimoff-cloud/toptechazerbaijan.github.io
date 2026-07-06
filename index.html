@@ -2,121 +2,293 @@
 <html lang="az">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="TopTech mağazası - son texnologiya və elektronika üzrə aparıcı, etibarlı satış nöqtəsi. Son modellər, sərfəli qiymətlər və peşəkar xidmət.">
-  <meta name="keywords" content="TopTech, elektronika, mağaza, Baki, texnologiya, etibarlı">
+  <meta name="description" content="TopTech - Azərbaycanın aparıcı texnologiya və elektronika mağazası. Ən son modellər, ən yaxşı qiymətlər və peşəkar xidmət.">
+  <meta name="keywords" content="TopTech, elektronika, telefon, laptop, Bakı, texnologiya, mağaza">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TopTech Vizitka</title>
-  <!-- Sosial ikonalar üçün Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>TopTech Azerbaijan</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Font (modern görünüş üçün) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
   <style>
-    /* Ümumi sıfırlama */
+    :root {
+      --primary-red: #e22120;
+      --dark: #0f172a;
+      --light: #f8fafc;
+    }
+    
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+    
     body {
-      background: #fff;
-      color: #333;
-      font-family: Arial, sans-serif;
-      display: flex; flex-direction: column; min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
     }
+    
     header {
+      position: relative;
       text-align: center;
-      border-bottom: 4px solid #e22120; /* Qırmızı xətt */
-      padding: 20px;
+      padding: 3rem 1rem 2rem;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid rgba(226, 33, 32, 0.3);
     }
-    header img {
-      max-width: 80%;
-      height: auto;
+    
+    .logo-container {
+      position: relative;
+      margin: 0 auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #1e2937, #334155);
+      padding: 12px;
+      box-shadow: 0 25px 50px -12px rgb(226 33 32 / 0.4);
+      border: 6px solid var(--primary-red);
     }
+    
+    .logo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .logo-container:hover img {
+      transform: scale(1.08) rotate(8deg);
+    }
+    
+    .badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: var(--primary-red);
+      color: white;
+      font-size: 0.8rem;
+      padding: 4px 14px;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
+    }
+    
     main {
       flex: 1;
+      padding: 2rem 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .hero-text {
       text-align: center;
-      padding: 20px;
+      margin-bottom: 3rem;
     }
+    
     h1 {
-      margin: 20px 0;
-      font-size: 2em;
-      color: #e22120; /* Qırmızı aksent rəng */
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ffffff, #f1f5f9, #e2e8f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      line-height: 1.1;
     }
-    p {
-      margin: 10px 0;
+    
+    .tagline {
+      font-size: 1.35rem;
+      color: #94a3b8;
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
+      line-height: 1.5;
     }
-    section.contact {
-      margin-top: 20px;
+    
+    .about {
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(226, 33, 32, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
-    section.contact p {
-      margin: 5px 0;
-      font-weight: bold;
+    
+    .about p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #cbd5e1;
+      margin-bottom: 1.2rem;
     }
+    
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .contact-card {
+      background: rgba(15, 23, 42, 0.8);
+      padding: 1.8rem;
+      border-radius: 16px;
+      border: 1px solid rgba(226, 33, 32, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary-red);
+      box-shadow: 0 20px 25px -5px rgb(226 33 32 / 0.15);
+    }
+    
+    .contact-card i {
+      font-size: 2rem;
+      color: var(--primary-red);
+      margin-bottom: 1rem;
+    }
+    
+    .social-section {
+      text-align: center;
+      margin: 3rem 0;
+    }
+    
+    .social-title {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      color: #e2e8f0;
+    }
+    
     .social-icons {
-      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
+    
     .social-icons a {
-      color: #333;
-      font-size: 1.5em;
-      margin: 0 10px;
-      transition: color 0.3s, transform 0.3s;
-      text-decoration: none;
+      width: 68px;
+      height: 68px;
+      background: rgba(30, 41, 59, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #e2e8f0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 3px solid transparent;
     }
+    
     .social-icons a:hover {
-      color: #e22120; /* Hoverda qırmızı */
-      transform: scale(1.2);
+      transform: scale(1.15) translateY(-6px);
+      background: #1e2937;
+      color: var(--primary-red);
+      border-color: var(--primary-red);
+      box-shadow: 0 0 0 8px rgba(226, 33, 32, 0.15);
     }
+    
     footer {
       text-align: center;
-      padding: 10px;
-      font-size: 0.9em;
-      background: #f9f9f9;
+      padding: 2rem 1rem;
+      background: rgba(15, 23, 42, 0.95);
+      border-top: 1px solid rgba(226, 33, 32, 0.3);
+      font-size: 0.95rem;
+      color: #64748b;
     }
-    /* Mobil üçün */
-    @media (max-width: 600px) {
-      h1 { font-size: 1.5em; }
-      .social-icons a { font-size: 1.2em; }
+    
+    .red-line {
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+      margin: 2.5rem auto;
+      width: 120px;
+      border-radius: 2px;
+    }
+    
+    @media (max-width: 640px) {
+      h1 { font-size: 2.4rem; }
+      .logo-container { width: 170px; height: 170px; }
+      .about { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
 <body>
   <header>
-    <!-- TopTech loqosu: şəkil URL-inə GitHub linki əlavə edin -->
-    <img src="logo.png" alt="TopTech Mağazası Loqosu">
+    <div class="logo-container">
+      <!-- GitHub-da yüklədiyiniz logo URL-ini buraya qoyun -->
+      <img src="https://github.com/istifadeciadi/repo-adiniz/raw/main/toptech-logo.png" 
+           alt="TopTech Logo" 
+           onerror="this.src='https://via.placeholder.com/220x220/1e2937/e22120?text=TOPTECH';">
+      <div class="badge">2025</div>
+    </div>
   </header>
+
   <main>
-    <h1>TopTech Mağazası</h1>
-    <p>TopTech mağazası Azərbaycanda aparıcı texnologiya və elektronika mağazalarındandır. Burada son model cihazları sərfəli qiymətlərlə tapa bilərsiniz. Peşəkar komandamız müştərilərimizə etibarlı və şəffaf xidmət göstərir.</p>
-    <section class="contact">
-      <p>Ünvan: Bakı, Azərbaycan</p>
-      <p>Telefon: +994 55 927 04 20</p>
-    </section>
-    <section class="social-icons">
-      <!-- Rəsmi sosial media ikonaları -->
-      <a href="https://instagram.com/toptech.az" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.tiktok.com/@toptech.az" class="social-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-tiktok"></i>
-      </a>
-      <a href="https://www.youtube.com/@toptechaz" class="social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://www.facebook.com/toptech.az" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-facebook"></i>
-      </a>
-    </section>
+    <div class="hero-text">
+      <h1>TopTech</h1>
+      <p class="tagline">Azərbaycanın texnologiya dünyasına açılan qapısı</p>
+      <div class="red-line"></div>
+    </div>
+
+    <div class="about">
+      <p><strong>TopTech</strong> — Bakıda ən müasir elektronika və smart cihazların rəsmi satış mərkəzidir. Biz sizə ən son model telefonlar, noutbuklar, smart saatlar, qulaqlıqlar və ev texnologiyalarını ən əlverişli qiymətlərlə təklif edirik.</p>
+      <p>Keyfiyyət, etibarlılıq və müştəri məmnuniyyəti bizim əsas prioritetlərimizdir. Peşəkar komandamız sizə məhsul seçimi, quraşdırma və sonrası xidmət sahəsində hər zaman dəstək göstərməyə hazırdır.</p>
+    </div>
+
+    <div class="contact-info">
+      <div class="contact-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Ünvan</h3>
+        <p>Bakı, Azərbaycan</p>
+      </div>
+      
+      <div class="contact-card">
+        <i class="fas fa-phone-volume"></i>
+        <h3>Əlaqə</h3>
+        <p><a href="tel:+994508880506" style="color: inherit; text-decoration: none;">+994 50 888 05 06</a></p>
+      </div>
+    </div>
+
+    <div class="social-section">
+      <p class="social-title">Bizi sosial şəbəkələrdə izləyin</p>
+      <div class="social-icons">
+        <a href="https://instagram.com/toptech.az" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@toptech.az" target="_blank" rel="noopener" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://www.youtube.com/@toptechaz" target="_blank" rel="noopener" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.facebook.com/toptech.az" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </div>
+    </div>
   </main>
+
   <footer>
-    © 2025 TopTech. Bütün hüquqlar qorunur.
+    <p>&copy; 2025 TopTech Azerbaijan. Bütün hüquqlar qorunur.</p>
+    <p style="margin-top: 8px; font-size: 0.9rem;">Etibarlı Texnologiya — Etibarlı Gələcək</p>
   </footer>
+
   <script>
-    // Hover effektini gücləndirmək üçün nümunə JavaScript
-    document.querySelectorAll('.social-link').forEach(link => {
+    // Kiçik interaktiv effekt
+    document.querySelectorAll('.social-icons a').forEach(link => {
       link.addEventListener('mouseenter', () => {
-        link.style.transform = 'scale(1.2)';
+        link.style.transform = 'scale(1.2) rotate(8deg)';
       });
       link.addEventListener('mouseleave', () => {
-        link.style.transform = 'scale(1)';
+        link.style.transform = 'scale(1) rotate(0deg)';
       });
     });
   </script>
