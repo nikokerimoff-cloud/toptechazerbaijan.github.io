@@ -38,18 +38,18 @@
     
     .logo-container {
       margin: 0 auto;
-      width: 240px;
-      height: 240px;
+      width: 340px;     /* Böyüdülmüş ölçü */
+      height: 340px;    /* Böyüdülmüş ölçü */
       border-radius: 50%;
       background: white;
-      padding: 15px;
+      padding: 18px;
       box-shadow: 0 25px 50px -12px rgba(226, 33, 32, 0.25);
-      border: 8px solid var(--primary-red);
+      border: 10px solid var(--primary-red);
       transition: transform 0.4s ease;
     }
     
     .logo-container:hover {
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
     
     .logo-container img {
@@ -187,14 +187,16 @@
     
     @media (max-width: 640px) {
       h1 { font-size: 2.6rem; }
-      .logo-container { width: 190px; height: 190px; }
+      .logo-container { 
+        width: 260px; 
+        height: 260px; 
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="logo-container">
-      <!-- GitHub-a yüklədiyiniz logo.png burada görünəcək -->
       <img src="logo.png" alt="TopTech Logo">
     </div>
   </header>
