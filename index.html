@@ -1,348 +1,124 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TopTech Azerbaijan</title>
-    <style>
-        /* Apple Dizayn Sistemi və Rənglər */
-        :root {
-            --apple-bg: #FFFFFF; /* Tam ağ fon */
-            --apple-white: #FFFFFF;
-            --toptech-red: #FF3B30; /* Sade Qırmızısı */
-            --apple-text-main: #1D1D1F;
-            --apple-text-sub: #86868B;
-            
-            /* 🟥 LOQONUN ÖLÇÜSÜNÜ BURADAN DƏYİŞƏ BİLƏRSƏN */
-            --logo-size: 400px; 
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body {
-            background-color: var(--apple-bg);
-            color: var(--apple-text-main);
-            overflow-x: hidden;
-        }
-
-        /* --- ✨ 1. AÇILIŞ ANİMASİYASI (SPLASH SCREEN) --- */
-        #splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: var(--apple-white);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            animation: fadeOut 0.4s ease-in-out 1s forwards; /* 1 saniyəlik sürətli açılış */
-        }
-
-        .splash-logo-container {
-            text-align: center;
-            animation: scaleUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-
-        .splash-img {
-            width: var(--logo-size); /* Açılışda da təyin etdiyiniz böyük ölçü */
-            height: auto;
-            max-width: 90vw;
-        }
-
-        /* --- 📱 MAIN CONTAINER --- */
-        #main-content {
-            opacity: 0;
-            animation: fadeInContent 0.6s ease-out 1.2s forwards;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-        }
-
-        /* --- 🟥 BÖYÜK TOPTECH LOQOSU VƏ MƏTN --- */
-        .brand-header {
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 40px;
-            width: 100%;
-            max-width: 600px;
-        }
-
-        .logo-wrapper {
-            margin-bottom: 25px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .logo-wrapper img {
-            width: var(--logo-size); /* Əsas səhifədəki böyük loqo */
-            height: auto;
-            max-width: 95vw; /* Mobil ekranlardan kənara çıxmaması üçün */
-            display: block;
-        }
-
-        .main-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            color: var(--toptech-red); /* Tamamilə Qırmızı Mətn */
-            line-height: 1.2;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            color: var(--apple-text-sub);
-            font-weight: 500;
-            margin-top: 8px;
-        }
-
-        /* --- 📦 SƏHİFƏ STRUKTURU (ZƏRİF KART SİSTEMİ) --- */
-        .card {
-            background: var(--apple-white);
-            border-radius: 24px;
-            padding: 30px;
-            width: 100%;
-            max-width: 480px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-            margin-bottom: 24px;
-            border: 1px solid #F2F2F7;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.09);
-        }
-
-        .section-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--apple-text-sub);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* --- 🔗 SOSİAL ŞƏBƏKƏ LINKLƏRİ --- */
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        .social-btn {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px;
-            background: #F5F5F7;
-            border-radius: 16px;
-            text-decoration: none;
-            color: var(--apple-text-main);
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-        }
-
-        .social-btn svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--apple-text-main);
-            transition: fill 0.2s ease;
-        }
-
-        /* Hover Effektləri (Brend Rəngləri) */
-        .social-btn:hover {
-            background-color: var(--apple-text-main);
-            color: var(--apple-white);
-        }
-
-        .social-btn:hover svg {
-            fill: var(--apple-white);
-        }
-
-        .btn-instagram:hover { background-color: #E1306C; }
-        .btn-tiktok:hover { background-color: #000000; }
-        .btn-facebook:hover { background-color: #1877F2; }
-        .btn-youtube:hover { background-color: #FF0000; }
-        
-        /* WhatsApp Düyməsi */
-        .btn-whatsapp {
-            grid-column: span 2;
-            background-color: #25D366;
-            color: white;
-            justify-content: center;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
-        }
-        .btn-whatsapp svg { fill: white; }
-        .btn-whatsapp:hover {
-            background-color: #20BA5A;
-            transform: scale(1.02);
-        }
-
-        /* --- 📞 ƏLAQƏ VƏ ÜNVAN --- */
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 14px 0;
-            border-bottom: 1px solid #F2F2F7;
-            text-decoration: none;
-            color: var(--apple-text-main);
-            font-weight: 500;
-        }
-
-        .contact-item:last-child {
-            border-bottom: none;
-        }
-
-        .contact-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: #F5F5F7;
-            border-radius: 50%;
-            color: var(--toptech-red);
-        }
-
-        .contact-icon svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
-
-        .contact-info p {
-            font-size: 0.85rem;
-            color: var(--apple-text-sub);
-        }
-        .contact-info span {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        /* --- 📐 ANİMASİYALARI --- */
-        @keyframes scaleUp {
-            0% { transform: scale(0.85); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; pointer-events: auto; }
-            100% { opacity: 0; pointer-events: none; visibility: hidden; }
-        }
-
-        @keyframes fadeInContent {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- 📱 MOBİL UYĞUNLUQ --- */
-        @media (max-width: 480px) {
-            .main-title { font-size: 2.2rem; }
-            .card { padding: 20px; }
-            .social-grid { grid-template-columns: 1fr; }
-            .btn-whatsapp { grid-column: span 1; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="description" content="TopTech mağazası - son texnologiya və elektronika üzrə aparıcı, etibarlı satış nöqtəsi. Son modellər, sərfəli qiymətlər və peşəkar xidmət.">
+  <meta name="keywords" content="TopTech, elektronika, mağaza, Baki, texnologiya, etibarlı">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TopTech Vizitka</title>
+  <!-- Sosial ikonalar üçün Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Ümumi sıfırlama */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      background: #fff;
+      color: #333;
+      font-family: Arial, sans-serif;
+      display: flex; flex-direction: column; min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      border-bottom: 4px solid #e22120; /* Qırmızı xətt */
+      padding: 20px;
+    }
+    header img {
+      max-width: 80%;
+      height: auto;
+    }
+    main {
+      flex: 1;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      margin: 20px 0;
+      font-size: 2em;
+      color: #e22120; /* Qırmızı aksent rəng */
+    }
+    p {
+      margin: 10px 0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    section.contact {
+      margin-top: 20px;
+    }
+    section.contact p {
+      margin: 5px 0;
+      font-weight: bold;
+    }
+    .social-icons {
+      margin: 20px 0;
+    }
+    .social-icons a {
+      color: #333;
+      font-size: 1.5em;
+      margin: 0 10px;
+      transition: color 0.3s, transform 0.3s;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      color: #e22120; /* Hoverda qırmızı */
+      transform: scale(1.2);
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+      background: #f9f9f9;
+    }
+    /* Mobil üçün */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5em; }
+      .social-icons a { font-size: 1.2em; }
+    }
+  </style>
 </head>
 <body>
-
-    <div id="splash-screen">
-        <div class="splash-logo-container">
-            <img src="logo.png" alt="TopTech" class="splash-img">
-        </div>
-    </div>
-
-    <div id="main-content">
-
-        <header class="brand-header">
-            <div class="logo-wrapper">
-                <img src="logo.png" alt="TopTech Logo">
-            </div>
-            <h1 class="main-title">TopTech Azerbaijan</h1>
-            <p class="tagline">Premium Electronics & Services</p>
-        </header>
-
-        <section class="card">
-            <h2 class="section-title">Bizimlə Əlaqə</h2>
-            <div class="social-grid">
-                
-                <a href="https://wa.me/994559270420" target="_blank" class="social-btn btn-whatsapp">
-                    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.528 2.017 14.067 1.01 11.5 1.01c-5.436 0-9.861 4.372-9.865 9.801-.001 1.736.46 3.431 1.336 4.928l-.991 3.623 3.71-.972zm12.115-4.856c-.33-.165-1.951-.963-2.251-1.073-.3-.109-.518-.165-.736.165-.218.329-.846 1.073-1.037 1.293-.19.22-.381.247-.711.082-.33-.165-1.393-.513-2.654-1.638-.98-.874-1.641-1.953-1.833-2.282-.19-.33-.02-.508.145-.671.149-.147.33-.384.495-.577.165-.192.22-.33.329-.55.11-.22.055-.412-.028-.577-.082-.165-.736-1.771-1.009-2.431-.267-.641-.54-.555-.736-.555-.19 0-.409-.005-.627-.005-.218 0-.573.082-.873.411-.3.33-1.146 1.118-1.146 2.724 0 1.607 1.172 3.159 1.336 3.379.165.22 2.307 3.522 5.589 4.939.781.337 1.392.539 1.87.691.784.249 1.497.214 2.061.13.629-.094 1.951-.797 2.224-1.537.273-.74 2.73-1.537 2.457-1.702z"/></svg>
-                    WhatsApp
-                </a>
-
-                <a href="https://instagram.com/toptech.az" target="_blank" class="social-btn btn-instagram">
-                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    Instagram
-                </a>
-
-                <a href="https://tiktok.com/@toptech.az" target="_blank" class="social-btn btn-tiktok">
-                    <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.032 2.61-.019 3.91-.019.17 3.4 2.25 5.02 5.54 5.41v3.83c-2.07-.01-4.03-.61-5.55-1.97-.03 2.54.01 5.08-.02 7.62-.13 4.23-3.07 7.15-7.3 7.13-4.23-.02-7.13-2.92-7.14-7.15-.02-4.13 2.85-6.99 6.94-7.14V11.5c-1.74.06-3.13.98-3.32 2.76-.23 2.05 1.34 3.61 3.39 3.57 2.11-.04 3.38-1.4 3.38-3.52V.02z"/></svg>
-                    TikTok
-                </a>
-
-                <a href="https://youtube.com/toptech.az" target="_blank" class="social-btn btn-youtube">
-                    <svg viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    YouTube
-                </a>
-
-                <a href="https://facebook.com/toptech.az" target="_blank" class="social-btn btn-facebook">
-                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    Facebook
-                </a>
-
-            </div>
-        </section>
-
-        <section class="card">
-            <h2 class="section-title">Rəsmi Məlumatlar</h2>
-            
-            <a href="tel:+994559270420" class="contact-item">
-                <div class="contact-icon">
-                    <svg viewBox="0 0 24 24"><path d="M21.384 17.791l-3.769-2.231c-.51-.303-1.154-.146-1.482.35l-1.31 1.98c-2.946-1.527-4.88-3.491-6.386-6.471l1.936-1.3c.487-.327.633-.976.321-1.478L8.472 1.378c-.344-.551-1.072-.714-1.611-.355L2.89 3.635c-.675.449-1.033 1.239-.909 2.039.715 4.593 3.513 10.1 8.167 14.717 4.673 4.643 10.244 7.39 14.832 8.046.776.111 1.531-.244 1.966-.908l2.215-3.38c.343-.526.155-1.222-.377-1.358z"/></svg>
-                </div>
-                <div class="contact-info">
-                    <p>Telefon</p>
-                    <span>+994 55 927 04 20</span>
-                </div>
-            </a>
-
-            <a href="mailto:toptechazerbaijan@gmail.com" class="contact-item">
-                <div class="contact-icon">
-                    <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
-                </div>
-                <div class="contact-info">
-                    <p>E-poçt</p>
-                    <span>toptechazerbaijan@gmail.com</span>
-                </div>
-            </a>
-
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 0c-4.198 0-7.6 3.402-7.6 7.602 0 4.198 3.469 9.21 7.6 16.398 4.131-7.188 7.6-12.2 7.6-16.398 0-4.2-3.402-7.602-7.6-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
-                </div>
-                <div class="contact-info">
-                    <p>Ünvan</p>
-                    <span>Bakı, Azərbaycan</span>
-                </div>
-            </div>
-
-        </section>
-
-    </div>
-
+  <header>
+    <!-- TopTech loqosu: şəkil URL-inə GitHub linki əlavə edin -->
+    <img src="{REPLACE_WITH_LOGO_URL}" alt="TopTech Mağazası Loqosu">
+  </header>
+  <main>
+    <h1>TopTech Mağazası</h1>
+    <p>TopTech mağazası Azərbaycanda aparıcı texnologiya və elektronika mağazalarındandır. Burada son model cihazları sərfəli qiymətlərlə tapa bilərsiniz. Peşəkar komandamız müştərilərimizə etibarlı və şəffaf xidmət göstərir.</p>
+    <section class="contact">
+      <p>Ünvan: Bakı, Azərbaycan</p>
+      <p>Telefon: +994 50 888 05 06</p>
+    </section>
+    <section class="social-icons">
+      <!-- Rəsmi sosial media ikonaları -->
+      <a href="https://instagram.com/toptech.az" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@toptech.az" class="social-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-tiktok"></i>
+      </a>
+      <a href="https://www.youtube.com/@toptechaz" class="social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://www.facebook.com/toptech.az" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </section>
+  </main>
+  <footer>
+    © 2025 TopTech. Bütün hüquqlar qorunur.
+  </footer>
+  <script>
+    // Hover effektini gücləndirmək üçün nümunə JavaScript
+    document.querySelectorAll('.social-link').forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        link.style.transform = 'scale(1.2)';
+      });
+      link.addEventListener('mouseleave', () => {
+        link.style.transform = 'scale(1)';
+      });
+    });
+  </script>
 </body>
 </html>
