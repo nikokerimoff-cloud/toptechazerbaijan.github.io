@@ -14,11 +14,7 @@
       --primary-red: #e22120;
     }
     
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
       font-family: 'Inter', sans-serif;
@@ -38,18 +34,13 @@
     
     .logo-container {
       margin: 0 auto;
-      width: 340px;     /* Böyüdülmüş ölçü */
-      height: 340px;    /* Böyüdülmüş ölçü */
+      width: 240px;
+      height: 240px;
       border-radius: 50%;
       background: white;
-      padding: 18px;
+      padding: 8px;           /* Logonu böyütmək üçün padding azaldıldı */
       box-shadow: 0 25px 50px -12px rgba(226, 33, 32, 0.25);
       border: 10px solid var(--primary-red);
-      transition: transform 0.4s ease;
-    }
-    
-    .logo-container:hover {
-      transform: scale(1.04);
     }
     
     .logo-container img {
@@ -87,22 +78,69 @@
       margin: 0 auto;
     }
     
-    .about {
+    .red-line {
+      height: 5px;
+      background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+      margin: 2.5rem auto;
+      width: 140px;
+      border-radius: 10px;
+    }
+
+    /* Xidmətlər bölməsi */
+    .services {
       background: white;
       border-radius: 24px;
       padding: 2.8rem;
       margin-bottom: 3rem;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-      border: 1px solid #f1f5f9;
     }
     
-    .about p {
-      font-size: 1.18rem;
-      line-height: 1.75;
-      color: #334155;
-      margin-bottom: 1.3rem;
+    .services h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #1e2937;
     }
     
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .service-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      border-radius: 16px;
+      transition: 0.3s;
+    }
+    
+    .service-item:hover {
+      background: #f8fafc;
+    }
+    
+    .service-item i {
+      font-size: 2rem;
+      color: var(--primary-red);
+      min-width: 50px;
+    }
+
+    /* Statistika */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    
+    .stat-item h3 {
+      font-size: 2.2rem;
+      color: var(--primary-red);
+    }
+
     .contact-info {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -115,30 +153,12 @@
       padding: 2rem;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-      transition: all 0.3s ease;
       text-align: center;
-    }
-    
-    .contact-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 35px rgba(226, 33, 32, 0.12);
-    }
-    
-    .contact-card i {
-      font-size: 2.4rem;
-      color: var(--primary-red);
-      margin-bottom: 1rem;
     }
     
     .social-section {
       text-align: center;
       margin: 3rem 0;
-    }
-    
-    .social-title {
-      font-size: 1.45rem;
-      margin-bottom: 1.8rem;
-      color: #1e2937;
     }
     
     .social-icons {
@@ -174,23 +194,11 @@
       background: white;
       color: #64748b;
       border-top: 1px solid #e2e8f0;
-      font-size: 1rem;
-    }
-    
-    .red-line {
-      height: 5px;
-      background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
-      margin: 2.5rem auto;
-      width: 140px;
-      border-radius: 10px;
     }
     
     @media (max-width: 640px) {
       h1 { font-size: 2.6rem; }
-      .logo-container { 
-        width: 260px; 
-        height: 260px; 
-      }
+      .logo-container { width: 200px; height: 200px; }
     }
   </style>
 </head>
@@ -208,9 +216,58 @@
       <div class="red-line"></div>
     </div>
 
-    <div class="about">
-      <p><strong>TopTech</strong> — Bakıda keyfiyyətli və ən son texnologiyaları əlverişli qiymətlərlə təklif edən etibarlı mağazadır. Geniş məhsul çeşidimizdə ən yeni smartfonlar, noutbuklar, audio cihazlar və smart ev texnologiyalarını tapa bilərsiniz.</p>
-      <p>Peşəkar komandamız sizə məhsul seçimi, quraşdırma və zəmanət xidməti ilə hər zaman dəstək olur. Keyfiyyət və müştəri məmnuniyyəti bizim əsas prinsipimizdir.</p>
+    <div class="services">
+      <h2>Üstünlüklərimiz</h2>
+      <div class="service-grid">
+        <div class="service-item">
+          <i class="fas fa-laptop"></i>
+          <div>
+            <strong>Yeni və İkinci Əl Premium Elektronika</strong>
+          </div>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-shield-alt"></i>
+          <div>
+            <strong>Rəsmi Zəmanətli Elektronikalar</strong>
+          </div>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-globe"></i>
+          <div>
+            <strong>Online Elektronika Alqı-Satqısı</strong>
+          </div>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-exchange-alt"></i>
+          <div>
+            <strong>İkinci əl elektronikan var? Şəklini at, qiymət deyək, alaq!</strong>
+          </div>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-plane"></i>
+          <div>
+            <strong>Xaricdən Sifariş: Azərbaycanda olmayan malları xüsusi sifarişlə gətiririk</strong>
+          </div>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Bakı və Bütün Azərbaycan</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistika -->
+    <div class="stats">
+      <div class="stat-item">
+        <h3>2026</h3>
+        <p>Rəsmi Fəaliyyət İli</p>
+      </div>
+      <div class="stat-item">
+        <h3>100+</h3>
+        <p>Razı Müştəri</p>
+      </div>
     </div>
 
     <div class="contact-info">
@@ -223,7 +280,7 @@
       <div class="contact-card">
         <i class="fas fa-phone-volume"></i>
         <h3>Əlaqə</h3>
-        <p><a href="tel:+994508880506" style="color: inherit; text-decoration: none; font-weight: 600;">+994 50 888 05 06</a></p>
+        <p><a href="tel:+994559270420" style="color: inherit; text-decoration: none; font-weight: 600;">+994 55 927 04 20</a></p>
       </div>
     </div>
 
@@ -236,10 +293,10 @@
         <a href="https://www.tiktok.com/@toptech.az" target="_blank" rel="noopener" aria-label="TikTok">
           <i class="fab fa-tiktok"></i>
         </a>
-        <a href="https://www.youtube.com/@toptechaz" target="_blank" rel="noopener" aria-label="YouTube">
+        <a href="https://www.youtube.com/@TopTech.Azerbaijan" target="_blank" rel="noopener" aria-label="YouTube">
           <i class="fab fa-youtube"></i>
         </a>
-        <a href="https://www.facebook.com/toptech.az" target="_blank" rel="noopener" aria-label="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=61590322727758" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
       </div>
