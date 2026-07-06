@@ -2,22 +2,16 @@
 <html lang="az">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="TopTech - Azərbaycanın aparıcı texnologiya və elektronika mağazası. Ən son modellər, ən yaxşı qiymətlər və peşəkar xidmət.">
-  <meta name="keywords" content="TopTech, elektronika, telefon, laptop, Bakı, texnologiya, mağaza">
+  <meta name="description" content="TopTech - Azərbaycanın aparıcı texnologiya və elektronika mağazası.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TopTech Azerbaijan</title>
   
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- Google Font (modern görünüş üçün) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
       --primary-red: #e22120;
-      --dark: #0f172a;
-      --light: #f8fafc;
     }
     
     * {
@@ -28,32 +22,34 @@
     
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
-      color: #e2e8f0;
+      background: #f8fafc;
+      color: #1e2937;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
     }
     
     header {
-      position: relative;
       text-align: center;
-      padding: 3rem 1rem 2rem;
-      background: rgba(15, 23, 42, 0.95);
-      border-bottom: 1px solid rgba(226, 33, 32, 0.3);
+      padding: 4rem 1rem 2rem;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     }
     
     .logo-container {
-      position: relative;
       margin: 0 auto;
-      width: 220px;
-      height: 220px;
+      width: 240px;
+      height: 240px;
       border-radius: 50%;
-      background: linear-gradient(145deg, #1e2937, #334155);
-      padding: 12px;
-      box-shadow: 0 25px 50px -12px rgb(226 33 32 / 0.4);
-      border: 6px solid var(--primary-red);
+      background: white;
+      padding: 15px;
+      box-shadow: 0 25px 50px -12px rgba(226, 33, 32, 0.25);
+      border: 8px solid var(--primary-red);
+      transition: transform 0.4s ease;
+    }
+    
+    .logo-container:hover {
+      transform: scale(1.05);
     }
     
     .logo-container img {
@@ -61,29 +57,11 @@
       height: 100%;
       object-fit: contain;
       border-radius: 50%;
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .logo-container:hover img {
-      transform: scale(1.08) rotate(8deg);
-    }
-    
-    .badge {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      background: var(--primary-red);
-      color: white;
-      font-size: 0.8rem;
-      padding: 4px 14px;
-      border-radius: 50px;
-      font-weight: 700;
-      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3);
     }
     
     main {
       flex: 1;
-      padding: 2rem 1rem;
+      padding: 2.5rem 1rem;
       max-width: 1100px;
       margin: 0 auto;
       width: 100%;
@@ -96,37 +74,33 @@
     
     h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 3.2rem;
+      font-size: 3.4rem;
       font-weight: 700;
-      background: linear-gradient(90deg, #ffffff, #f1f5f9, #e2e8f0);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-      line-height: 1.1;
+      color: #1e2937;
+      margin-bottom: 0.8rem;
     }
     
     .tagline {
-      font-size: 1.35rem;
-      color: #94a3b8;
-      max-width: 600px;
+      font-size: 1.4rem;
+      color: #475569;
+      max-width: 620px;
       margin: 0 auto;
-      line-height: 1.5;
     }
     
     .about {
-      background: rgba(30, 41, 59, 0.6);
-      border-radius: 20px;
-      padding: 2.5rem;
+      background: white;
+      border-radius: 24px;
+      padding: 2.8rem;
       margin-bottom: 3rem;
-      border: 1px solid rgba(226, 33, 32, 0.2);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+      border: 1px solid #f1f5f9;
     }
     
     .about p {
-      font-size: 1.15rem;
-      line-height: 1.7;
-      color: #cbd5e1;
-      margin-bottom: 1.2rem;
+      font-size: 1.18rem;
+      line-height: 1.75;
+      color: #334155;
+      margin-bottom: 1.3rem;
     }
     
     .contact-info {
@@ -137,21 +111,21 @@
     }
     
     .contact-card {
-      background: rgba(15, 23, 42, 0.8);
-      padding: 1.8rem;
-      border-radius: 16px;
-      border: 1px solid rgba(226, 33, 32, 0.3);
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
       transition: all 0.3s ease;
+      text-align: center;
     }
     
     .contact-card:hover {
       transform: translateY(-8px);
-      border-color: var(--primary-red);
-      box-shadow: 0 20px 25px -5px rgb(226 33 32 / 0.15);
+      box-shadow: 0 20px 35px rgba(226, 33, 32, 0.12);
     }
     
     .contact-card i {
-      font-size: 2rem;
+      font-size: 2.4rem;
       color: var(--primary-red);
       margin-bottom: 1rem;
     }
@@ -162,85 +136,79 @@
     }
     
     .social-title {
-      font-size: 1.4rem;
-      margin-bottom: 1.5rem;
-      color: #e2e8f0;
+      font-size: 1.45rem;
+      margin-bottom: 1.8rem;
+      color: #1e2937;
     }
     
     .social-icons {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 1.8rem;
     }
     
     .social-icons a {
-      width: 68px;
-      height: 68px;
-      background: rgba(30, 41, 59, 0.8);
+      width: 72px;
+      height: 72px;
+      background: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      color: #e2e8f0;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 3px solid transparent;
+      font-size: 2.1rem;
+      color: #334155;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
     }
     
     .social-icons a:hover {
-      transform: scale(1.15) translateY(-6px);
-      background: #1e2937;
+      transform: scale(1.12) translateY(-6px);
       color: var(--primary-red);
-      border-color: var(--primary-red);
-      box-shadow: 0 0 0 8px rgba(226, 33, 32, 0.15);
+      box-shadow: 0 15px 30px rgba(226, 33, 32, 0.2);
     }
     
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      background: rgba(15, 23, 42, 0.95);
-      border-top: 1px solid rgba(226, 33, 32, 0.3);
-      font-size: 0.95rem;
+      padding: 2.5rem 1rem;
+      background: white;
       color: #64748b;
+      border-top: 1px solid #e2e8f0;
+      font-size: 1rem;
     }
     
     .red-line {
-      height: 4px;
+      height: 5px;
       background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
       margin: 2.5rem auto;
-      width: 120px;
-      border-radius: 2px;
+      width: 140px;
+      border-radius: 10px;
     }
     
     @media (max-width: 640px) {
-      h1 { font-size: 2.4rem; }
-      .logo-container { width: 170px; height: 170px; }
-      .about { padding: 2rem 1.5rem; }
+      h1 { font-size: 2.6rem; }
+      .logo-container { width: 190px; height: 190px; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="logo-container">
-      <!-- GitHub-da yüklədiyiniz logo URL-ini buraya qoyun -->
-      <img src="logo.png" alt="TopTech Logo"> 
-           alt="TopTech Logo" 
-           onerror="this.src='https://via.placeholder.com/220x220/1e2937/e22120?text=TOPTECH';">
-      <div class="badge">2025</div>
+      <!-- GitHub-a yüklədiyiniz logo.png burada görünəcək -->
+      <img src="logo.png" alt="TopTech Logo">
     </div>
   </header>
 
   <main>
     <div class="hero-text">
       <h1>TopTech</h1>
-      <p class="tagline">Azərbaycanın texnologiya dünyasına açılan qapısı</p>
+      <p class="tagline">Azərbaycanın ən müasir texnologiya və elektronika mərkəzi</p>
       <div class="red-line"></div>
     </div>
 
     <div class="about">
-      <p><strong>TopTech</strong> — Bakıda ən müasir elektronika və smart cihazların rəsmi satış mərkəzidir. Biz sizə ən son model telefonlar, noutbuklar, smart saatlar, qulaqlıqlar və ev texnologiyalarını ən əlverişli qiymətlərlə təklif edirik.</p>
-      <p>Keyfiyyət, etibarlılıq və müştəri məmnuniyyəti bizim əsas prioritetlərimizdir. Peşəkar komandamız sizə məhsul seçimi, quraşdırma və sonrası xidmət sahəsində hər zaman dəstək göstərməyə hazırdır.</p>
+      <p><strong>TopTech</strong> — Bakıda keyfiyyətli və ən son texnologiyaları əlverişli qiymətlərlə təklif edən etibarlı mağazadır. Geniş məhsul çeşidimizdə ən yeni smartfonlar, noutbuklar, audio cihazlar və smart ev texnologiyalarını tapa bilərsiniz.</p>
+      <p>Peşəkar komandamız sizə məhsul seçimi, quraşdırma və zəmanət xidməti ilə hər zaman dəstək olur. Keyfiyyət və müştəri məmnuniyyəti bizim əsas prinsipimizdir.</p>
     </div>
 
     <div class="contact-info">
@@ -253,7 +221,7 @@
       <div class="contact-card">
         <i class="fas fa-phone-volume"></i>
         <h3>Əlaqə</h3>
-        <p><a href="tel:+994508880506" style="color: inherit; text-decoration: none;">+994 50 888 05 06</a></p>
+        <p><a href="tel:+994508880506" style="color: inherit; text-decoration: none; font-weight: 600;">+994 50 888 05 06</a></p>
       </div>
     </div>
 
@@ -278,19 +246,7 @@
 
   <footer>
     <p>&copy; 2025 TopTech Azerbaijan. Bütün hüquqlar qorunur.</p>
-    <p style="margin-top: 8px; font-size: 0.9rem;">Etibarlı Texnologiya — Etibarlı Gələcək</p>
+    <p style="margin-top: 8px;">Etibarlı Texnologiya — Etibarlı Gələcək</p>
   </footer>
-
-  <script>
-    // Kiçik interaktiv effekt
-    document.querySelectorAll('.social-icons a').forEach(link => {
-      link.addEventListener('mouseenter', () => {
-        link.style.transform = 'scale(1.2) rotate(8deg)';
-      });
-      link.addEventListener('mouseleave', () => {
-        link.style.transform = 'scale(1) rotate(0deg)';
-      });
-    });
-  </script>
 </body>
 </html>
